@@ -3,18 +3,15 @@
     <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
   </head>
   <body>
+
     <a-scene>
-
-        <!-- 山（疊多個半圓達到山的樣子）-->
-      <a-sphere position="0 2 -8" radius="2.5" color="#8D5524" segments-height="10"></a-sphere>
-      <a-sphere position="2.5 1.2 -8.5" radius="1.2" color="#755130"></a-sphere>
-      <a-sphere position="-2 1.7 -7" radius="0.9" color="#755130"></a-sphere>
-      <!-- 湖 -->
-      <a-plane position="0 0.01 -8" rotation="-90 0 0" width="8" height="5" color="#67b7e7" opacity="0.8"></a-plane>
-      <!-- 小舟 -->
-      <a-box position="0 0.15 -7.5" depth="0.7" height="0.1" width="1.2" color="#C2B280"></a-box>
-    </a-scene>
+      <a-assets>
+   
+      </a-assets>
+  <!-- 雪山 -->
+  <a-entity position="0 1 -1" gltf-model="https://raw.githubusercontent.com/ye144440154/Aframe_poem/refs/heads/main/snowy_mountain_-_terrain/scene.gltf" ></a-entity>
 
     </a-scene>
+
   </body>
 </html>
