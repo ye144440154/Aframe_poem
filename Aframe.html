@@ -1,17 +1,88 @@
-<html>
-  <head>
-    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
-  </head>
-  <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project_1 Team_1 : Snow</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
+</head>
+<body>
+    <a-scene fog="type: linear; color: #0C3845; near: 10; far: 25">
+        <!-- wait indefinitely for local assets -->
+        <a-assets>
 
-    <a-scene>
-      <a-assets>
-   
-      </a-assets>
-  <!-- 雪山 -->
-  <a-entity position="0 1 -1" gltf-model="https://raw.githubusercontent.com/ye144440154/Aframe_poem/refs/heads/main/snowy_mountain_-_terrain/scene.gltf" ></a-entity>
 
+        </a-assets>
+
+        <!-- Sky -->
+        <a-sky color="#ffffff"></a-sky>
+
+        <!-- Lighting -->
+        <a-light type="ambient" color="#ffffff" intensity="0.2"></a-light>
+        <a-light type="directional" color="#e8f4ff" intensity="0.8" position="-8 10 -100"></a-light>
+
+        <!-- Ground (snowy) -->
+        <a-plane id="ground" position="0 0 0" rotation="-90 0 0" width="40" height="40" color="#f0f8ff" roughness="0.9"></a-plane>
+
+       <!-- Mountains --> <a-entity id="mountains"> <!-- Left mountain --> <a-cone position="-12 4 -3" radius-bottom="8" radius-top="0.5" height="12" color="#6b5d4f" segments-height="32" segments-radial="32"></a-cone> <!-- Right mountain --> <a-cone position="12 3 -5" radius-bottom="7" radius-top="0.8" height="10" color="#7d6e5e" segments-height="32" segments-radial="32"></a-cone> <!-- Far left mountain --> <a-cone position="-15 3 -10" radius-bottom="6" radius-top="1.5" height="9" color="#6b5d4f" segments-height="32" segments-radial="32"></a-cone> <!-- Far right mountain --> <a-cone position="15 2 -8" radius-bottom="5" radius-top="1" height="8" color="#7d6e5e" segments-height="32" segments-radial="32"></a-cone> <!-- Extra left mountain --> <a-cone position="-18 3 -5" radius-bottom="5" radius-top="1.2" height="8" color="#5a4d3f" segments-height="32" segments-radial="32"></a-cone> <!-- Extra right mountain --> <a-cone position="18 2 -6" radius-bottom="6" radius-top="0.8" height="9" color="#6b5d4f" segments-height="32" segments-radial="32"></a-cone> <!-- Back left mountain --> <a-cone position="-10 4 -15" radius-bottom="7" radius-top="1" height="11" color="#7d6e5e" segments-height="32" segments-radial="32"></a-cone> <!-- Back right mountain --> <a-cone position="10 3 -14" radius-bottom="6" radius-top="1.3" height="9" color="#6b5d4f" segments-height="32" segments-radial="32"></a-cone> </a-entity>
+
+        <!-- Snow coverage on mountains -->
+        <a-cone position="-12 9 -3" radius-bottom="3" radius-top="0.2" height="5" color="#ffffff" segments-height="32" segments-radial="32" opacity="0.8"></a-cone>
+        <a-cone position="12 8 -5" radius-bottom="2.2" radius-top="0.2" height="4" color="#ffffff" segments-height="32" segments-radial="32" opacity="0.8"></a-cone>
+        <a-cone position="15 7 -8" radius-bottom="1.5" radius-top="0.2" height="3" color="#ffffff" segments-height="32" segments-radial="32" opacity="0.8"></a-cone>
+        <a-cone position="-18 8 -5" radius-bottom="1.8" radius-top="0.2" height="4" color="#ffffff" segments-height="32" segments-radial="32" opacity="0.8"></a-cone>
+        <a-cone position="18 7 -6" radius-bottom="1.8" radius-top="0.2" height="4" color="#ffffff" segments-height="32" segments-radial="32" opacity="0.8"></a-cone>
+        <a-cone position="-10 10 -15" radius-bottom="2.2" radius-top="0.2" height="4.5" color="#ffffff" segments-height="32" segments-radial="32" opacity="0.8"></a-cone>
+        <a-cone position="10 8 -14" radius-bottom="2.2" radius-top="0.2" height="4.5" color="#ffffff" segments-height="32" segments-radial="32" opacity="0.8"></a-cone>
+        <a-cone position="-15 9 -10" radius-bottom="2.2" radius-top="0.2" height="5" color="#ffffff" segments-height="32" segments-radial="32" opacity="0.8"></a-cone>
+
+
+      <!-- Snowy River (under boat) - Lighter, textured with subtle waves -->
+<!-- Snowy River (under boat) --> <a-plane id="river" position="0 0.05 0" rotation="-90 0 0" width="8" height="40" color="#BBD6F3" metalness="0.2" roughness="0.4"></a-plane>
+
+
+
+        <!-- Boat -->
+        <a-entity id="boat" position="0 0.5 -3" animation="property: position; from: 0 0.5 -3; to: 0 0.7 -3; dur: 3000; dir: alternate; loop: true">
+            <a-box position="0 0 0" width="2" height="0.6" depth="3.5" color="#8b4513"></a-box>
+            <a-box position="0 0.35 0" width="1.8" height="0.3" depth="3.2" color="#a0522d"></a-box>
+            
+            <!-- Fisherman -->
+            <a-entity id="fisherman" position="0 1.2 -0.5" animation="property: rotation; from: 0 0 0; to: 0 0 2; dur: 4000; dir: alternate; loop: true">
+                <a-cylinder position="0 0 0" radius="0.25" height="0.8" color="#8b6f47"></a-cylinder>
+                <a-sphere position="0 0.65 0" radius="0.22" color="#d4a574"></a-sphere>
+                <a-cone position="0 0.95 0" radius-bottom="0.35" radius-top="0.2" height="0.4" color="#d4af6a"></a-cone>
+                <a-cylinder position="0 0.78 0" radius="0.35" height="0.1" color="#c4a06a" opacity="0.9"></a-cylinder>
+                <a-box position="0 0.2 0" width="0.6" height="0.7" depth="0.5"
+                       material="shader: standard; src: #clothTex; repeat: 1 2; metalness: 0; roughness: 1; color: #4a6741; opacity: 0.95"></a-box>
+                <a-cylinder position="-0.35 0.3 0" radius="0.1" height="0.6" rotation="0 0 20" color="#d4a574"></a-cylinder>
+                <a-cylinder position="0.35 0.3 0" radius="0.1" height="0.6" rotation="0 0 -20" color="#d4a574"></a-cylinder>
+                <a-cylinder position="0.5 0.4 0.6" radius="0.04" height="2.5" rotation="0 0 -35" color="#654321"></a-cylinder>
+                <a-sphere position="0.8 -0.8 1.2" radius="0.08" color="#c0a080"></a-sphere>
+            </a-entity>
+        </a-entity>
+
+        <!-- Snow Particles -->
+        <a-entity id="snow-particles">
+            <!-- Row 1 -->
+            <a-sphere position="-10 8 0" radius="0.08" color="#ffffff" opacity="0.6" animation="property: position; from: -10 8 0; to: -10 -2 0; dur: 8000; loop: true"></a-sphere>
+            <a-sphere position="-5 9 2" radius="0.06" color="#ffffff" opacity="0.7" animation="property: position; from: -5 9 2; to: -5 -2 2; dur: 9000; loop: true"></a-sphere>
+            <a-sphere position="0 8.5 1" radius="0.07" color="#ffffff" opacity="0.65" animation="property: position; from: 0 8.5 1; to: 0 -2 1; dur: 8500; loop: true"></a-sphere>
+            <a-sphere position="5 9.5 -1" radius="0.05" color="#ffffff" opacity="0.75" animation="property: position; from: 5 9.5 -1; to: 5 -2 -1; dur: 9500; loop: true"></a-sphere>
+            <a-sphere position="10 8 -2" radius="0.06" color="#ffffff" opacity="0.6" animation="property: position; from: 10 8 -2; to: 10 -2 -2; dur: 8800; loop: true"></a-sphere>
+            
+            <!-- Row 2 -->
+            <a-sphere position="-8 7 3" radius="0.07" color="#ffffff" opacity="0.5" animation="property: position; from: -8 7 3; to: -8 -2 3; dur: 9200; loop: true"></a-sphere>
+            <a-sphere position="-3 8.2 -2" radius="0.06" color="#ffffff" opacity="0.68" animation="property: position; from: -3 8.2 -2; to: -3 -2 -2; dur: 8600; loop: true"></a-sphere>
+            <a-sphere position="3 9 0" radius="0.08" color="#ffffff" opacity="0.55" animation="property: position; from: 3 9 0; to: 3 -2 0; dur: 9300; loop: true"></a-sphere>
+            <a-sphere position="8 8.5 2" radius="0.05" color="#ffffff" opacity="0.72" animation="property: position; from: 8 8.5 2; to: 8 -2 2; dur: 8900; loop: true"></a-sphere>
+            <a-sphere position="-12 9.5 -3" radius="0.07" color="#ffffff" opacity="0.6" animation="property: position; from: -12 9.5 -3; to: -12 -2 -3; dur: 9100; loop: true"></a-sphere>
+            
+        </a-entity>
+        <a-entity position="10 1 10" gltf-model="https://raw.githubusercontent.com/ye144440154/Aframe_poem/refs/heads/main/snowy_mountain_-_terrain/scene.gltf" ></a-entity>
+        <!-- Camera -->
+        <a-camera position="0 2 6" look-controls></a-camera>
     </a-scene>
-
-  </body>
+</body>
 </html>
